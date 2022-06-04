@@ -1,0 +1,148 @@
+Leaf changes summary: 18 artifacts changed
+Changed leaf types summary: 1 leaf type changed
+Removed/Changed/Added functions summary: 6 Removed, 0 Changed, 10 Added functions
+Removed/Changed/Added variables summary: 0 Removed, 0 Changed, 1 Added variable
+
+6 Removed functions:
+
+  [D] 'function int drm_atomic_helper_disable_all(drm_device*, drm_modeset_acquire_ctx*)'
+  [D] 'function void lru_cache_disable()'
+  [D] 'function void lru_cache_enable()'
+  [D] 'function int snd_soc_component_enable_pin(snd_soc_component*, const char*)'
+  [D] 'function int snd_soc_component_get_pin_status(snd_soc_component*, const char*)'
+  [D] 'function int snd_soc_dapm_del_routes(snd_soc_dapm_context*, const snd_soc_dapm_route*, int)'
+
+10 Added functions:
+
+  [A] 'function reset_control* __reset_control_get(device*, const char*, int, bool, bool, bool)'
+  [A] 'function int __traceiter_android_vh_killed_process(void*, task_struct*, task_struct*, bool*)'
+  [A] 'function int register_tcf_proto_ops(tcf_proto_ops*)'
+  [A] 'function int tcf_action_exec(sk_buff*, tc_action**, int, tcf_result*)'
+  [A] 'function void tcf_exts_destroy(tcf_exts*)'
+  [A] 'function int tcf_exts_dump(sk_buff*, tcf_exts*)'
+  [A] 'function int tcf_exts_dump_stats(sk_buff*, tcf_exts*)'
+  [A] 'function int tcf_exts_validate(net*, tcf_proto*, nlattr**, nlattr*, tcf_exts*, bool, bool, netlink_ext_ack*)'
+  [A] 'function bool tcf_queue_work(rcu_work*, work_func_t)'
+  [A] 'function int unregister_tcf_proto_ops(tcf_proto_ops*)'
+
+1 Added variable:
+
+  [A] 'tracepoint __tracepoint_android_vh_killed_process'
+
+'struct snd_pcm_runtime at pcm.h:344:1' changed:
+  type size changed from 6144 to 6592 (in bits)
+  2 data member insertions:
+    'mutex buffer_mutex', at offset 6144 (in bits) at pcm.h:432:1
+    'atomic_t buffer_accessing', at offset 6528 (in bits) at pcm.h:433:1
+  111 impacted interfaces:
+    function unsigned long int _snd_pcm_stream_lock_irqsave(snd_pcm_substream*)
+    function int dapm_clock_event(snd_soc_dapm_widget*, snd_kcontrol*, int)
+    function int dapm_pinctrl_event(snd_soc_dapm_widget*, snd_kcontrol*, int)
+    function int dapm_regulator_event(snd_soc_dapm_widget*, snd_kcontrol*, int)
+    function int devm_snd_dmaengine_pcm_register(device*, const snd_dmaengine_pcm_config*, unsigned int)
+    function int devm_snd_soc_register_card(device*, snd_soc_card*)
+    function int devm_snd_soc_register_component(device*, const snd_soc_component_driver*, snd_soc_dai_driver*, int)
+    function snd_usb_substream* find_snd_usb_substream(unsigned int, unsigned int, unsigned int, snd_usb_audio**, void (snd_usb_audio*)*)
+    function int snd_dmaengine_pcm_close_release_chan(snd_pcm_substream*)
+    function dma_chan* snd_dmaengine_pcm_get_chan(snd_pcm_substream*)
+    function int snd_dmaengine_pcm_open(snd_pcm_substream*, dma_chan*)
+    function int snd_dmaengine_pcm_open_request_chan(snd_pcm_substream*, dma_filter_fn, void*)
+    function snd_pcm_uframes_t snd_dmaengine_pcm_pointer(snd_pcm_substream*)
+    function int snd_dmaengine_pcm_prepare_slave_config(snd_pcm_substream*, snd_pcm_hw_params*, dma_slave_config*)
+    function int snd_dmaengine_pcm_refine_runtime_hwparams(snd_pcm_substream*, snd_dmaengine_dai_dma_data*, snd_pcm_hardware*, dma_chan*)
+    function void snd_dmaengine_pcm_set_config_from_dai_data(const snd_pcm_substream*, const snd_dmaengine_dai_dma_data*, dma_slave_config*)
+    function int snd_dmaengine_pcm_trigger(snd_pcm_substream*, int)
+    function int snd_hwparams_to_dma_slave_config(const snd_pcm_substream*, const snd_pcm_hw_params*, dma_slave_config*)
+    function int snd_pcm_hw_constraint_eld(snd_pcm_runtime*, void*)
+    function int snd_pcm_hw_constraint_integer(snd_pcm_runtime*, snd_pcm_hw_param_t)
+    function int snd_pcm_hw_constraint_list(snd_pcm_runtime*, unsigned int, snd_pcm_hw_param_t, const snd_pcm_hw_constraint_list*)
+    function int snd_pcm_hw_constraint_mask64(snd_pcm_runtime*, snd_pcm_hw_param_t, u_int64_t)
+    function int snd_pcm_hw_constraint_minmax(snd_pcm_runtime*, snd_pcm_hw_param_t, unsigned int, unsigned int)
+    function int snd_pcm_hw_constraint_msbits(snd_pcm_runtime*, unsigned int, unsigned int, unsigned int)
+    function int snd_pcm_hw_constraint_ratnums(snd_pcm_runtime*, unsigned int, snd_pcm_hw_param_t, const snd_pcm_hw_constraint_ratnums*)
+    function int snd_pcm_hw_constraint_step(snd_pcm_runtime*, unsigned int, snd_pcm_hw_param_t, unsigned long int)
+    function int snd_pcm_hw_rule_add(snd_pcm_runtime*, unsigned int, int, snd_pcm_hw_rule_func_t, void*, int, ...)
+    function int snd_pcm_lib_default_mmap(snd_pcm_substream*, vm_area_struct*)
+    function int snd_pcm_lib_free_pages(snd_pcm_substream*)
+    function int snd_pcm_lib_ioctl(snd_pcm_substream*, unsigned int, void*)
+    function int snd_pcm_lib_malloc_pages(snd_pcm_substream*, size_t)
+    function void snd_pcm_lib_preallocate_pages(snd_pcm_substream*, int, device*, size_t, size_t)
+    function void snd_pcm_period_elapsed(snd_pcm_substream*)
+    function void snd_pcm_release_substream(snd_pcm_substream*)
+    function void snd_pcm_set_sync(snd_pcm_substream*)
+    function void snd_pcm_stream_lock(snd_pcm_substream*)
+    function void snd_pcm_stream_unlock(snd_pcm_substream*)
+    function void snd_pcm_stream_unlock_irqrestore(snd_pcm_substream*, unsigned long int)
+    function int snd_soc_add_card_controls(snd_soc_card*, const snd_kcontrol_new*, int)
+    function int snd_soc_add_component_controls(snd_soc_component*, const snd_kcontrol_new*, unsigned int)
+    function int snd_soc_add_dai_controls(snd_soc_dai*, const snd_kcontrol_new*, int)
+    function snd_kcontrol* snd_soc_card_get_kcontrol(snd_soc_card*, const char*)
+    function int snd_soc_card_jack_new(snd_soc_card*, const char*, int, snd_soc_jack*, snd_soc_jack_pin*, unsigned int)
+    function void snd_soc_component_async_complete(snd_soc_component*)
+    function int snd_soc_component_disable_pin(snd_soc_component*, const char*)
+    function void snd_soc_component_exit_regmap(snd_soc_component*)
+    function int snd_soc_component_force_enable_pin(snd_soc_component*, const char*)
+    function void snd_soc_component_init_regmap(snd_soc_component*, regmap*)
+    function unsigned int snd_soc_component_read(snd_soc_component*, unsigned int)
+    function int snd_soc_component_set_jack(snd_soc_component*, snd_soc_jack*, void*)
+    function int snd_soc_component_set_pll(snd_soc_component*, int, int, unsigned int, unsigned int)
+    function int snd_soc_component_set_sysclk(snd_soc_component*, int, int, unsigned int, int)
+    function int snd_soc_component_test_bits(snd_soc_component*, unsigned int, unsigned int, unsigned int)
+    function int snd_soc_component_update_bits(snd_soc_component*, unsigned int, unsigned int, unsigned int)
+    function int snd_soc_component_update_bits_async(snd_soc_component*, unsigned int, unsigned int, unsigned int)
+    function int snd_soc_component_write(snd_soc_component*, unsigned int, unsigned int)
+    function int snd_soc_dai_active(snd_soc_dai*)
+    function int snd_soc_dai_get_channel_map(snd_soc_dai*, unsigned int*, unsigned int*, unsigned int*, unsigned int*)
+    function void snd_soc_dai_link_set_capabilities(snd_soc_dai_link*)
+    function int snd_soc_dai_set_bclk_ratio(snd_soc_dai*, unsigned int)
+    function int snd_soc_dai_set_channel_map(snd_soc_dai*, unsigned int, unsigned int*, unsigned int, unsigned int*)
+    function int snd_soc_dai_set_fmt(snd_soc_dai*, unsigned int)
+    function int snd_soc_dai_set_pll(snd_soc_dai*, int, int, unsigned int, unsigned int)
+    function int snd_soc_dai_set_sysclk(snd_soc_dai*, int, unsigned int, int)
+    function int snd_soc_dai_set_tdm_slot(snd_soc_dai*, unsigned int, unsigned int, int, int)
+    function int snd_soc_dai_set_tristate(snd_soc_dai*, int)
+    function int snd_soc_dapm_add_routes(snd_soc_dapm_context*, const snd_soc_dapm_route*, int)
+    function int snd_soc_dapm_disable_pin(snd_soc_dapm_context*, const char*)
+    function int snd_soc_dapm_disable_pin_unlocked(snd_soc_dapm_context*, const char*)
+    function int snd_soc_dapm_enable_pin(snd_soc_dapm_context*, const char*)
+    function int snd_soc_dapm_force_enable_pin(snd_soc_dapm_context*, const char*)
+    function int snd_soc_dapm_force_enable_pin_unlocked(snd_soc_dapm_context*, const char*)
+    function int snd_soc_dapm_get_pin_status(snd_soc_dapm_context*, const char*)
+    function int snd_soc_dapm_ignore_suspend(snd_soc_dapm_context*, const char*)
+    function snd_soc_dapm_context* snd_soc_dapm_kcontrol_dapm(snd_kcontrol*)
+    function snd_soc_dapm_widget* snd_soc_dapm_kcontrol_widget(snd_kcontrol*)
+    function int snd_soc_dapm_mixer_update_power(snd_soc_dapm_context*, snd_kcontrol*, int, snd_soc_dapm_update*)
+    function int snd_soc_dapm_mux_update_power(snd_soc_dapm_context*, snd_kcontrol*, int, soc_enum*, snd_soc_dapm_update*)
+    function snd_soc_dapm_widget* snd_soc_dapm_new_control(snd_soc_dapm_context*, const snd_soc_dapm_widget*)
+    function int snd_soc_dapm_new_controls(snd_soc_dapm_context*, const snd_soc_dapm_widget*, int)
+    function int snd_soc_dapm_new_widgets(snd_soc_card*)
+    function int snd_soc_dapm_sync(snd_soc_dapm_context*)
+    function int snd_soc_dapm_sync_unlocked(snd_soc_dapm_context*)
+    function int snd_soc_dapm_weak_routes(snd_soc_dapm_context*, const snd_soc_dapm_route*, int)
+    function snd_pcm_substream* snd_soc_dpcm_get_substream(snd_soc_pcm_runtime*, int)
+    function snd_soc_dai* snd_soc_find_dai(const snd_soc_dai_link_component*)
+    function snd_soc_pcm_runtime* snd_soc_get_pcm_runtime(snd_soc_card*, snd_soc_dai_link*)
+    function int snd_soc_jack_add_gpios(snd_soc_jack*, int, snd_soc_jack_gpio*)
+    function void snd_soc_jack_notifier_register(snd_soc_jack*, notifier_block*)
+    function void snd_soc_jack_report(snd_soc_jack*, int, int)
+    function int snd_soc_limit_volume(snd_soc_card*, const char*, int)
+    function snd_soc_component* snd_soc_lookup_component(device*, const char*)
+    function snd_soc_component* snd_soc_lookup_component_nolocked(device*, const char*)
+    function int snd_soc_new_compress(snd_soc_pcm_runtime*, int)
+    function int snd_soc_of_get_dai_link_codecs(device*, device_node*, snd_soc_dai_link*)
+    function int snd_soc_of_parse_audio_routing(snd_soc_card*, const char*)
+    function int snd_soc_of_parse_audio_simple_widgets(snd_soc_card*, const char*)
+    function int snd_soc_of_parse_aux_devs(snd_soc_card*, const char*)
+    function int snd_soc_of_parse_card_name(snd_soc_card*, const char*)
+    function void snd_soc_of_put_dai_link_codecs(snd_soc_dai_link*)
+    function int snd_soc_register_card(snd_soc_card*)
+    function int snd_soc_register_component(device*, const snd_soc_component_driver*, snd_soc_dai_driver*, int)
+    function snd_soc_component* snd_soc_rtdcom_lookup(snd_soc_pcm_runtime*, const char*)
+    function int snd_soc_runtime_calc_hw(snd_soc_pcm_runtime*, snd_pcm_hardware*, int)
+    function int snd_soc_runtime_set_dai_fmt(snd_soc_pcm_runtime*, unsigned int)
+    function int snd_soc_set_runtime_hwparams(snd_pcm_substream*, const snd_pcm_hardware*)
+    function int snd_soc_tplg_component_load(snd_soc_component*, snd_soc_tplg_ops*, const firmware*, u32)
+    function int snd_soc_tplg_component_remove(snd_soc_component*, u32)
+    function int snd_soc_tplg_widget_bind_event(snd_soc_dapm_widget*, const snd_soc_tplg_widget_events*, int, u16)
+    function int snd_soc_unregister_card(snd_soc_card*)
+    function int snd_usb_enable_audio_stream(snd_usb_substream*, int, bool)

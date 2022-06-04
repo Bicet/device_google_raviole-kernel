@@ -1,0 +1,37 @@
+Leaf changes summary: 18 artifacts changed
+Changed leaf types summary: 1 leaf type changed
+Removed/Changed/Added functions summary: 6 Removed, 0 Changed, 10 Added functions
+Removed/Changed/Added variables summary: 0 Removed, 0 Changed, 1 Added variable
+
+6 Removed functions:
+
+  [D] 'function int drm_atomic_helper_disable_all(drm_device*, drm_modeset_acquire_ctx*)'
+  [D] 'function void lru_cache_disable()'
+  [D] 'function void lru_cache_enable()'
+  [D] 'function int snd_soc_component_enable_pin(snd_soc_component*, const char*)'
+  [D] 'function int snd_soc_component_get_pin_status(snd_soc_component*, const char*)'
+  [D] 'function int snd_soc_dapm_del_routes(snd_soc_dapm_context*, const snd_soc_dapm_route*, int)'
+
+10 Added functions:
+
+  [A] 'function reset_control* __reset_control_get(device*, const char*, int, bool, bool, bool)'
+  [A] 'function int __traceiter_android_vh_killed_process(void*, task_struct*, task_struct*, bool*)'
+  [A] 'function int register_tcf_proto_ops(tcf_proto_ops*)'
+  [A] 'function int tcf_action_exec(sk_buff*, tc_action**, int, tcf_result*)'
+  [A] 'function void tcf_exts_destroy(tcf_exts*)'
+  [A] 'function int tcf_exts_dump(sk_buff*, tcf_exts*)'
+  [A] 'function int tcf_exts_dump_stats(sk_buff*, tcf_exts*)'
+  [A] 'function int tcf_exts_validate(net*, tcf_proto*, nlattr**, nlattr*, tcf_exts*, bool, bool, netlink_ext_ack*)'
+  [A] 'function bool tcf_queue_work(rcu_work*, work_func_t)'
+  [A] 'function int unregister_tcf_proto_ops(tcf_proto_ops*)'
+
+1 Added variable:
+
+  [A] 'tracepoint __tracepoint_android_vh_killed_process'
+
+'struct snd_pcm_runtime at pcm.h:344:1' changed:
+  type size changed from 6144 to 6592 (in bits)
+  2 data member insertions:
+    'mutex buffer_mutex', at offset 6144 (in bits) at pcm.h:432:1
+    'atomic_t buffer_accessing', at offset 6528 (in bits) at pcm.h:433:1
+  111 impacted interfaces
